@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurante KiloBytes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="modoContainer">
+    
+    
+    <select id="modoDaltonismo">
+        <option value="normal">Modo de Visualização</option>
+        <option value="protanopia">Protanopia</option>
+        <option value="deuteranopia">Deuteranopia</option>
+        <option value="tritanopia">Tritanopia</option>
+    </select>
+    </div>
+
+    <svg style="display: none;">
+        <filter id="protanopia">
+          <feColorMatrix type="matrix"
+            values="0.567 0.433 0     0 0
+                    0.558 0.442 0     0 0
+                    0     0.242 0.758 0 0
+                    0     0     0     1 0"/>
+        </filter>
+      
+        <filter id="deuteranopia">
+          <feColorMatrix type="matrix"
+            values="0.625 0.375 0     0 0
+                    0.7   0.3   0     0 0
+                    0     0.3   0.7   0 0
+                    0     0     0     1 0"/>
+        </filter>
+      
+        <filter id="tritanopia">
+          <feColorMatrix type="matrix"
+            values="0.95  0.05  0     0 0
+                    0     0.433 0.567 0 0
+                    0     0.475 0.525 0 0
+                    0     0     0     1 0"/>
+        </filter>
+      </svg>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <header>
+        <img src="imagens/Logo.jpeg" class="logo-topo" alt="Logo KiloBytes">
+        <nav>
+            <a href="#cardapio">Cardápio</a>  
+            <a href="#origem">Nossa Origem</a>
+            <a href="#espera">Espera Digital</a> 
+            <a href="#contatos">Contatos</a>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <img src="imagens/painel3.jpeg" width="300" height="600" alt="Promoção">
+    </section>
+
+    <section id="cardapio">
+        <h2>Nosso Cardápio</h2>
+        <p class="alerta-geral" style="font-size: 25px;">Em caso de alergia, informe ao atendente.</p>
+
+        <h3>Pratos</h3>
+        <div class="grid-cardapio">
+            <div class="card-item">
+                <img src="imagens/feijoada.jpeg" alt="Feijoada">
+                <div class="info"><strong>Feijoada<span class="preco">R$ 29,90</span></strong><p>Serve 1 pessoa. Feijão preto, carnes suínas selecionadas, preparado lentamente para realçar o sabor. Acompanha arroz branco, couve refogada, farofa crocante e laranja.</p></div>
+                <p class="alergenos">  🚨 Contém carne suína</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/Tropeiro.jpeg" alt="Tropeiro">
+                <div class="info"><strong>Tropeiro</strong><span class="preco">R$ 25,90</span><p>Serve 1 pessoa. Feijão tropeiro tradicional com farinha, ovos mexidos, linguiça e bacon. Acompanha arroz branco.</p></div>
+                <p class="alergenos">  🚨 Contém glúten, ovos e carne suína</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/TiraGosto.jpeg" alt="Tira Gosto">
+                <div class="info"><strong>Tira Gosto</strong><span class="preco">R$ 30,90</span><p>Porção para compartilhar. Seleção de petiscos variados preparados na hora, ideal para dividir.</p></div>
+                <p class="alergenos">  🚨 Pode conter glúten, ovos e carne suína</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/FrangocomQuiabo.jpeg" alt="Frango com Quiabo">
+                <div class="info"><strong>Frango com Quiabo</strong><span class="preco">R$ 28,90</span><p>Serve 1 pessoa. Frango cozido com quiabo e temperos caseiros mineiros. Acompanha arroz branco e angu.</p></div>
+                <p class="alergenos">  🚨Pode conter traços de glúten</p>
+            </div>
+        </div>
+
+        <h3>Bebidas</h3>
+        <div class="grid-cardapio">
+            <div class="card-item">
+                <img src="imagens/Refri.jpeg" alt="Refrigerantes">
+                <div class="info"><strong>Refri Latas</strong><span class="preco">R$ 7,20</span><p>Lata 350ml. Disponível nos sabores Coca-Cola, Guaraná, Fanta e Sprite, sempre bem gelados.</p></div>
+                
+            </div>
+            <div class="card-item">
+                <img src="imagens/cervejas.jpeg" alt="Cervejas">
+                <div class="info"><strong>Cervejas</strong><span class="preco">R$ 9,90</span><p>Garrafa 330ml. Opções como Skol, Brahma, Heineken e Amstel, servidas geladas.</p></div> 
+                <p class="alergenos">  🚨 Contém glúten</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/drinks.jpeg" alt="Drinks">
+                <div class="info"><strong>Drinks</strong><span class="preco">R$ 17,90</span><p>Caipirinha, Mojito e Gin Tônica preparados na hora.</p></div>
+                <p class="alergenos">  🚨 Pode conter álcool e derivados de frutas</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/suco.jpeg" alt="Sucos">
+                <div class="info"><strong>Sucos Naturais</strong><span class="preco">R$ 10,90</span><p>Copo 300ml. Sucos naturais de laranja, limão, maracujá e abacaxi, feitos na hora.</p></div>
+                <p class="alergenos">  🚨 Pode conter traços de frutas cítricas</p>
+            </div>
+        </div>
+
+        <h3>Sobremesas</h3>
+        <div class="grid-cardapio">
+            <div class="card-item">
+                <img src="imagens/sorvete.jpeg" alt="Sorvete">
+                <div class="info"><strong>Sorvete</strong><span class="preco">R$ 12,50</span><p>Gelado e cremoso. Vários sabores disponíveis.</p></div>
+                <p class="alergenos">  🚨 Contém lactose</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/romeu e julieta.jpeg" alt="Romeu e Julieta">
+                <div class="info"><strong>Romeu e Julieta</strong><span class="preco">R$ 8,90</span><p>A combinação perfeita de queijo minas com goiabada.</p></div>
+                <p class="alergenos"> 🚨 Contém lactose</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/pedemoluque.jpeg" alt="Pé de Moleque">
+                <div class="info"><strong>Pé de Moleque</strong><span class="preco">R$ 9,90</span><p>Doce típico de amendoim crocante e caramelizado.</p></div>
+                <p class="alergenos">  🚨 Contém amendoim</p>
+            </div>
+            <div class="card-item">
+                <img src="imagens/pudim.jpeg" alt="Pudim">
+                <div class="info"><strong>Pudim</strong><span class="preco">R$ 11,99</span><p>Pudim de leite condensado com calda de caramelo.</p></div>
+                <p class="alergenos">  🚨 Contém lactose e ovos</p>
+            </div>
+        </div>
+    </section>
+
+   <section id="origem">
+    <div class="origem-container">
+        <h2 style="font-size: 30px;">Nossa Origem: Onde o Bit encontra o Broa</h2>
+        
+        <p>A história do <strong>KiloBytes</strong> não começa em uma cozinha, mas sim entre linhas de código e canecas de café frio em um escritório de tecnologia em Contagem. Éramos um grupo de desenvolvedores que, em meio a prazos apertados e rotinas digitais, sentíamos um "bug" no peito: a saudade do tempero de casa, do cheiro do alho fritando na banha e do barulho do feijão tropeiro sendo misturado na gamela de madeira.</p>
+
+        <p>Percebemos que, enquanto o mundo corria para o futuro, o nosso paladar pedia um retorno às raízes. Decidimos então aplicar a precisão que usávamos nos nossos <em>softwares</em> para resgatar as receitas de nossas avós. O objetivo era claro: criar uma experiência gastronômica de "alta performance", mas que preservasse o acolhimento que só Minas Gerais sabe oferecer.</p>
+
+        <div class="origem-detalhes">
+            <p>Resgatamos os segredos do <strong>Frango com Quiabo</strong> sem baba, a textura perfeita da <strong>Feijoada</strong> mineira e a crocância do <strong>Pé de Moleque</strong> artesanal. Cada ingrediente é selecionado com o rigor de um código limpo, priorizando pequenos produtores locais e ingredientes frescos da nossa terra.</p>
+            
+            <p>O nome <strong>KiloBytes</strong> é nossa homenagem a essa jornada. Deixamos os computadores em segundo plano para pesar o que realmente importa: o prazer de uma comida bem feita, servida por quilo, com a agilidade que a vida moderna exige e o carinho que a tradição mineira não deixa morrer.</p>
+        </div>
+
+        <p class="final-quote">"No KiloBytes, a gente não serve apenas comida. A gente entrega um 'update' de sabor na sua memória afetiva."</p>
+    </div>
+    </section>
+    <section id="espera">
+    <h3>Espera Digital</h3>
+    
+    <img src="imagens/Fila.png" alt="Espera Digital" class="img-espera">
+    </section>
+
+    <footer id="contatos">
+    <img src="imagens/Logo.jpeg" class="logo-footer">
+
+    <div class="contatos-container">
+
+        <div class="contato-bloco">
+            <strong>Endereço</strong>
+            <p>Rua Primavera, 77 - Contagem MG</p>
+        </div>
+
+        <div class="linha"></div>
+
+        <div class="contato-bloco">
+            <strong>Horário</strong>
+            <p>11h às 20h</p>
+        </div>
+
+        <div class="linha"></div>
+
+        <div class="contato-bloco">
+            <strong>WhatsApp</strong>
+            <p>
+                <img src="imagens/WhatsApp.png" class="icone-whats">
+                (31) 9623-6791
+            </p>
+        </div>
+
+        <div class="linha"></div>
+
+        <div class="contato-bloco">
+            <strong>Email</strong>
+            <p>kilobytes@email.com</p>
+        </div>
+
+    </div>
+    </footer>
+
+    <button id="toggleTema"> Modo Escuro</button>
+
+    <script>
+        const botao = document.getElementById("toggleTema");
+        
+        botao.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+        
+            if (document.body.classList.contains("dark")) {
+                botao.textContent = " Modo Claro";
+            } else {
+                botao.textContent = " Modo Escuro";
+            }
+        });
+    </script>
+
+    <div id="controleZoom">
+        <button onclick="diminuirZoom()">A-</button>
+        <button onclick="resetZoom()">100%</button>
+        <button onclick="aumentarZoom()">A+</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

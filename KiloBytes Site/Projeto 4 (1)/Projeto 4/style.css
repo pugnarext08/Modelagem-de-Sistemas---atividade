@@ -1,0 +1,316 @@
+:root {
+    --amarelo: #FFC107;
+
+    --fundo: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8f8f8 50%,
+        #f1f1f1 100%
+    );
+
+    --card: #FAFAFA;
+    --texto: #000000;
+    --subtexto: #555;
+    --borda: #ccc;
+}
+
+body.dark {
+    --fundo: linear-gradient(
+        180deg,
+        #000000 0%,
+        #0a0a0a 40%,
+        #121212 100%
+    );
+
+    --card: #1E1E1E;
+    --texto: #FFFFFF;
+    --subtexto: #AAA;
+    --borda: #333;
+}
+
+body.protanopia { filter: url('#protanopia'); }
+body.deuteranopia { filter: url('#deuteranopia'); }
+body.tritanopia { filter: url('#tritanopia'); }
+
+body {
+    background: var(--fundo);
+    background-attachment: fixed;
+    color: var(--texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    transition: background 0.4s ease, color 0.3s;
+}
+
+/* HEADER */
+header {
+    background: var(--fundo);
+    padding: 10px 40px;
+    border-bottom: 3px solid var(--amarelo);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 50px; 
+}
+
+.logo-topo {
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--amarelo);
+}
+
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    position: relative;
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: var(--amarelo);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a.ativo::after {
+    width: 100%;
+}
+
+.banner img { 
+    width: 100%; 
+    display: block; 
+}
+
+.img-espera { 
+    width: 100%; 
+    display: block; 
+}
+
+#cardapio { 
+    padding: 40px 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+#cardapio h2 { 
+    text-align: center; 
+    font-size: 2.5rem; 
+    margin-bottom: 10px; 
+}
+
+body.dark #cardapio h2 {
+    text-shadow: 0 0 10px rgba(255,193,7,0.25);
+}
+
+#cardapio h3 { 
+    color: var(--amarelo); 
+    border-left: 5px solid var(--amarelo); 
+    padding-left: 15px; 
+    margin: 40px 0 20px 0;
+    font-size: 1.8rem;
+}
+
+.alerta-geral { 
+    text-align: center; 
+    color: var(--subtexto); 
+    margin-bottom: 30px; 
+}
+
+.grid-cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card-item {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border-bottom: 5px solid var(--amarelo);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.card-item:hover { 
+    transform: translateY(-10px); 
+}
+
+.card-item img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.info { padding: 20px; }
+
+.info strong { 
+    color: var(--texto); 
+    font-size: 1.2rem; 
+    display: block; 
+    margin-bottom: 8px; 
+}
+
+.info p { 
+    font-size: 0.9rem; 
+    margin: 0; 
+}
+
+.preco {
+    display: block;
+    color: var(--texto);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+#origem { 
+    padding: 60px 10%; 
+    text-align: center; 
+}
+
+#origem h2 { 
+    color: var(--amarelo); 
+}
+
+#espera h3 {
+    color: var(--amarelo);
+    border-left: 85px solid var(--amarelo);
+    padding-left: 90px;
+    margin: 40px 0 20px 0;
+    font-size: 1.8rem;
+}
+
+footer {
+    padding: 80px 20px;
+    margin-top: 80px;
+    text-align: center;
+    border-top: 1px solid var(--borda);
+}
+
+.logo-footer { 
+    width: 90px; 
+    border-radius: 50%;
+    border: 2px solid var(--amarelo);
+}
+
+.contatos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contato-bloco {
+    text-align: center;
+}
+
+.linha {
+    width: 1px;
+    height: 40px;
+    background: var(--borda);
+}
+
+.icone-whats {
+    width: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+#toggleTema {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+
+    padding: 14px 20px;
+    border: none;
+    background: var(--amarelo);
+    color: #000;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#modoDaltonismo {
+    position: fixed;
+    top: 20px;     
+    right: 180px;   
+    z-index: 2000;
+
+    padding: 14px 20px;
+    border: none;
+    background: var(--amarelo);
+    color: #000;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+
+    appearance: none;
+}
+
+#modoDaltonismo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+body.dark .logo-topo {
+    content: url("imagens/logoDark.png");
+}
+
+body.dark .logo-footer {
+    content: url("imagens/logoDark.png");
+}
+
+#controleZoom {
+    position: fixed;
+    bottom: 20px;   
+    right: 80px; 
+    z-index: 9999;
+    display: flex;
+    gap: 10px;
+}
+
+#controleZoom button {
+    padding: 12px 16px;
+    border: none;
+    background: var(--amarelo);
+    color: #000;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+#controleZoom button:hover {
+    transform: scale(1.1);
+}
